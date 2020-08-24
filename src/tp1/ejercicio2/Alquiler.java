@@ -10,14 +10,15 @@ package tp1.ejercicio2;
  * @author Dan
  */
 public class Alquiler {
+    private static int iva;
     private int precioAlquiler;
     private int posAmarre;
     private int cantDias;
     private Barco unBarco;
     private Cliente unCliente;
 
-    public Alquiler(int precioAlquiler, int posAmarre, int cantDias, Barco unBarco, Cliente unCliente) {
-        this.precioAlquiler = precioAlquiler;
+    public Alquiler(int posAmarre, int cantDias, Barco unBarco, Cliente unCliente) {
+        this.precioAlquiler = calcularValor(unBarco,cantDias);
         this.posAmarre = posAmarre;
         this.cantDias = cantDias;
         this.unBarco = unBarco;
@@ -63,5 +64,16 @@ public class Alquiler {
     public void setUnCliente(Cliente unCliente) {
         this.unCliente = unCliente;
     }
-    
+    private int registrarAlquiler(Barco unBarco,int canDias){
+        return calcularValor(unBarco,canDias);
+    }
+    private static int calcularValor(Barco unBarco,int canDias){
+        return precioBase(unBarco)*canDias;
+    }
+    private static int precioBase(Barco unBarco){
+        return unBarco.getEslora()*iva;
+    }
+    private static void setAlcualizarIva(int unNumero){
+        iva=unNumero;
+    }
 }
