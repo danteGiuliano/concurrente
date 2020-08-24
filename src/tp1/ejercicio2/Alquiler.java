@@ -10,7 +10,7 @@ package tp1.ejercicio2;
  * @author Dan
  */
 public class Alquiler {
-    private static int iva;
+    private static int iva=10;
     private int precioAlquiler;
     private int posAmarre;
     private int cantDias;
