@@ -9,7 +9,7 @@ package tp1.ejercicio3;
  *
  * @author Dan
  */
- class Empleado extends Persona {
+abstract class  Empleado extends Persona {
 
     private String legajo;
     private int antiguedad;
@@ -22,11 +22,17 @@ package tp1.ejercicio3;
     public: son variables de instancias que pueden ser accedidas por toda clase asociada o heredada.
     */
 
+    @Override
+    public String toString() {
+        return "Empleado{" + "legajo=" + legajo + '}'+super.toString();
+    }
+
     public Empleado(int dni, String direccion, String añoNacimiento, char sexo, String legajo) {
         super(dni, direccion, añoNacimiento, sexo);
         this.antiguedad = 0;
         this.legajo = legajo;
     }
+     protected abstract boolean esTecnico();
 
     public int getAntiguedad() {
         return antiguedad;

@@ -17,4 +17,12 @@ class Tecnico extends Empleado {
         super(dni, direccion, añoNacimiento, sexo, legajo);
         this.unTitulo = unTitulo;
     }
+    protected boolean esTecnico(){
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Tecnico{" + "unTitulo=" + unTitulo.toString() + '}'+super.toString();
+    }
 }

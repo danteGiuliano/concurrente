@@ -53,4 +53,9 @@ public class Persona {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "dni=" + dni + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", sexo=" + sexo + '}';
+    }
 }

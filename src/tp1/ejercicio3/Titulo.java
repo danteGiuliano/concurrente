@@ -21,6 +21,11 @@ package tp1.ejercicio3;
         this.sueldoBase = sueldoBase;
     }
 
+    @Override
+    public String toString() {
+        return "Titulo{" + "nombre=" + nombre + ", a\u00f1oTitulo=" + añoTitulo + ", sueldoBase=" + sueldoBase + '}';
+    }
+
     public String getNombre() {
         return nombre;
     }

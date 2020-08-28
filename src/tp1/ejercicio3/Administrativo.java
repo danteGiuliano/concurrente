@@ -17,4 +17,12 @@ class Administrativo extends Empleado {
         super(dni, direccion, añoNacimiento, sexo, legajo);
         this.categoria = categoria;
     }
+    protected boolean esTecnico(){
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Administrativo{" + "categoria=" + categoria + '}'+super.toString();
+    }
 }
