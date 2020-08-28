@@ -71,7 +71,7 @@ public class Alquiler {
         return precioBase(unBarco)*canDias;
     }
     private static int precioBase(Barco unBarco){
-        return unBarco.getEslora()*iva;
+        return unBarco.getEslora()*iva+unBarco.getPrecioEspecial();
     }
     private static void setAlcualizarIva(int unNumero){
         iva=unNumero;
