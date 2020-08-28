@@ -9,7 +9,7 @@ package tp1.ejercicio2;
  *
  * @author Dan
  */
-public class Barco {
+abstract class Barco {
     private int eslora;
     private String fechaFabricacion;
     private String matricula;
@@ -43,5 +43,5 @@ public class Barco {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-  
+  protected abstract int getPrecioEspecial();
 }

@@ -10,8 +10,12 @@ package tp1.ejercicio2;
  * @author Dan
  */
 public class Deportivo extends Barco{
-    public Deportivo(int unaEslora,String fechaFabricacion,String matricula){
+    private int potenciaCv;
+    public Deportivo(int unaEslora,String fechaFabricacion,String matricula,int potenciaCv){
         super(unaEslora,fechaFabricacion,matricula);
+        this.potenciaCv=potenciaCv;
     }
-    
+    protected int getPrecioEspecial(){
+        return this.potenciaCv;
+    }
 }

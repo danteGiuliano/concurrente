@@ -10,7 +10,13 @@ package tp1.ejercicio2;
  * @author Dan
  */
 public class Velero extends Barco {
-    public Velero(int eslora,String añoFabricacion,String matricula){
+    private int cantidadVelas;
+    public Velero(int eslora,String añoFabricacion,String matricula,int cantidadVelas){
         super(eslora,añoFabricacion,matricula);
+        this.cantidadVelas=cantidadVelas;
+    }
+    @Override
+    protected int getPrecioEspecial(){
+        return this.cantidadVelas;
     }
 }

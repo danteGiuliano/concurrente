@@ -10,7 +10,14 @@ package tp1.ejercicio2;
  * @author Dan
  */
 public class Yate extends Barco{
-    public Yate(int unaEslora,String unaFechaFabricacion,String unaMatricula){
+    private int cantidadCamarotes;
+    private int potenciaCV;
+    public Yate(int unaEslora,String unaFechaFabricacion,String unaMatricula,int cantidadCamarotes,int potenciaCV){
         super(unaEslora,unaFechaFabricacion,unaMatricula);
+        this.cantidadCamarotes=cantidadCamarotes;
+        this.potenciaCV=potenciaCV;
+    }
+    protected int getPrecioEspecial(){
+        return this.cantidadCamarotes+this.potenciaCV;
     }
 }
