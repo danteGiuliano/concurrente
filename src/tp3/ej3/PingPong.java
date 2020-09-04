@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tp3.ejercicio1.Ejercicio1.ejercicio2.Ejercicio4;
+package tp3.ej3;
 
 import Recursos.Colores;
 
