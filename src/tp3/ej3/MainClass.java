@@ -12,14 +12,17 @@ package tp3.ej3;
 public class MainClass {
 
     public static void main(String[] args) {
-        PingPong t1 = new PingPong("PING", 1);
-        PingPong t2 = new PingPong("PONG", 1);
-        PingPong t3 = new PingPong("PANG", 1);
-        PingPong t4 = new PingPong("PUNG", 1);
-        PingPong array[]= {t1,t2,t3,t4};
+        
+        PingPong array [] = new PingPong[3];
+        String nombres []={"PING","PONG","PANG","PUNG"};
+        int i=0;
+        for(PingPong p :array){
+            p = new PingPong(nombres[i],1);
+            i++;
+        }
         // Activación
-        for (PingPong i : array) {
-            i.start();
+        for (PingPong c : array) {
+            c.start();
         }
         // Espera unos segundos
         try {
