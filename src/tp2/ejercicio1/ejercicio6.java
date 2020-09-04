@@ -30,4 +30,33 @@ public class ejercicio6 {
         acceso_por_indice(v, 16);
     }
 
+    /**
+     * El codigo usa de muy mala practica el uso de excepciones. los modulos
+     * deben estar encapsulados con los posibles casos de fallo, no esta bueno
+     * abusar de las excepciones.
+     *
+     * el codigo no usa una comvencion de variables apropiada al proposito del
+     * modulo
+     *
+     * los nombres no son apropiados
+     *
+     * un abuso de excepciones, lo que hace un codigo poco legible.
+     * 
+     * un modulo definido como un double, no deberia imprimir. ya que hace mas complejo su debug
+     *
+     *
+     * Mejora: definir el comportamiento como un booleano, ya que retorna el
+     * mismo array pasado por parametro se utiliza como caso verdadero si el
+     * indice es valido.
+     *
+     * nombres significativos
+     *
+     */
+    public static boolean indiceValido(double array[], int indice) {
+        boolean flag = false;
+        if (indice >= 0 && indice < array.length) {
+            flag = true;
+        }
+        return flag;
+    }
 }
