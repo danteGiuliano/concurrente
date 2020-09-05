@@ -15,18 +15,16 @@ public class MainClass {
         
         PingPong array [] = new PingPong[3];
         String nombres []={"PING","PONG","PANG","PUNG"};
-        int i=0;
-        for(PingPong p :array){
-            p = new PingPong(nombres[i],1);
-            i++;
+        for (int j = 0; j < array.length; j++) {
+            array[j]= new PingPong(nombres[j],1);
         }
+        
         // Activación
         for (PingPong c : array) {
             c.start();
         }
         // Espera unos segundos
         try {
-
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             System.out.println("Error en sleep ");
