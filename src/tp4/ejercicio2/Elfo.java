@@ -6,37 +6,18 @@ package tp4.ejercicio2;
  */
 public class Elfo extends Personaje {
 
-    private Personaje user;
-
     public Elfo(String unNombre, Personaje user) {
-        super(unNombre);
-        this.user = user;
+        super(unNombre, user);
     }
 
     public void run() {
-
-        try {
-            int num;
-            System.out.println("Elfo, Listo");
-            Thread.sleep(10);
-            while (user.estaVivo()) {
-                num = (int) (Math.random() * 3) + 1;
-                System.out.println(this.nombre + " Ah realizado una curacion de: " + num);
-                this.accion(num);
-                Thread.sleep(100);
-                System.out.println("La vida de: " + user.obtenerNombre() + " Es de " + user.obtenerVida());
-                if (!user.estaVivo()) {
-                    System.out.println(this.nombre + ": " + user.obtenerNombre() + " Murio no se puede curar mas :c");
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error en la clase Elfo.");
-        }
+        super.run();
     }
 
-    public synchronized void accion(int num) {
-        user.curar(num);
+     public synchronized void accion() {
+        System.out.println(this.nombre + ": Realizo una curacion de 3");
+        this.user.curar(3);
+        System.out.println(this.nombre + ": La vida de " + this.user.obtenerNombre() + " Es de: " + this.user.obtenerVida());
     }
 
 }

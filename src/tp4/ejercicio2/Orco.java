@@ -6,36 +6,17 @@ package tp4.ejercicio2;
  */
 public class Orco extends Personaje {
 
-    private Personaje user;
-
     public Orco(String unNombre, Personaje user) {
-        super(unNombre);
-        this.user = user;
+        super(unNombre, user);
     }
 
     public void run() {
-        try {
-            int num;
-            System.out.println("Orco, Listo");
-            Thread.sleep(10);
-
-            while (user.estaVivo()) {
-                num = (int) (Math.random() * 3) + 4;
-                System.out.println(this.nombre + " Ah realizado un ataque de:" + num);
-                this.accion(num);
-                Thread.sleep(100);
-                System.out.println("La vida de: " + user.obtenerNombre() + " Es de " + user.obtenerVida());
-                if (!user.estaVivo()) {
-                    System.out.println(this.nombre + ": " + user.obtenerNombre() + " Murio eh ganado!");
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error en la clase Orco");
-        }
+        super.run();
     }
 
-    public synchronized void accion(int num) {
-        this.user.dañar(num);
+    public synchronized void accion() {
+        System.out.println(this.nombre + ": Pego un ataque de 3");
+        this.user.dañar(3);
+        System.out.println(this.nombre + ": La vida de " + this.user.obtenerNombre() + " Es de: " + this.user.obtenerVida());
     }
 }
