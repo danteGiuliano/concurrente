@@ -32,7 +32,7 @@ public abstract class Puerta implements Runnable {
                
             
         } catch (Exception e) {
-            System.out.println("Error en " + this.nombre);
+            System.out.println("Error en " + Thread.currentThread().getName());
         }
     }
 

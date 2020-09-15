@@ -16,8 +16,8 @@ public class Estacionamiento {
     private int ocupacionAuto;
 
     public Estacionamiento() {
-    this.MAX_AUTOS=3;
-    this.MAX_MOTOS=3;
+    this.MAX_AUTOS=0;
+    this.MAX_MOTOS=0;
     this.ocupacionAuto=0;
     this.ocupacionMoto=0;
     }
@@ -28,16 +28,16 @@ public class Estacionamiento {
     public boolean hayEspacioAuto(){
         return this.MAX_AUTOS>=this.ocupacionMoto;
     }
-    public synchronized void ingresaAuto(){
+    public  void ingresaAuto(){
         this.ocupacionAuto=this.ocupacionAuto+1;
     }
-     public synchronized void ingresaMoto(){
+     public  void ingresaMoto(){
         this.ocupacionMoto=this.ocupacionMoto+1;
     }
-    public synchronized void saleMoto(){
+    public  void saleMoto(){
         this.ocupacionMoto=this.ocupacionMoto-1;
     }
-    public synchronized void saleAuto(){
+    public  void saleAuto(){
         this.ocupacionAuto=this.ocupacionAuto-1;
     }
     public boolean ocupacionAuto(){

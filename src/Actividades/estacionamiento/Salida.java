@@ -21,17 +21,26 @@ public class Salida extends Puerta {
     }
 
     @Override
-   void accion() {
+    void accion() {
         if (tipo) {
             if (this.estacionamineto.ocupacionMoto()) {
-                System.out.println("Sacando una moto por: " + Thread.currentThread().getName());
-                
-                this.estacionamineto.saleMoto();
+                synchronized (this) {
+                    System.out.println("Sacando una moto por: " + Thread.currentThread().getName());
+                    this.estacionamineto.saleMoto();
+                }
+            } else {
+                System.out.println("No hay motos!");
+
             }
         } else {
             if (this.estacionamineto.ocupacionAuto()) {
-                System.out.println("Sacando un auto por: " + Thread.currentThread().getName());
-                this.estacionamineto.saleAuto();
+                synchronized (this) {
+                    System.out.println("Sacando un auto por: " + Thread.currentThread().getName());
+                    this.estacionamineto.saleAuto();
+                }
+
+            } else {
+                System.out.println("No hay motos!");
             }
         }
     }

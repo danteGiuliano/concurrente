@@ -20,22 +20,26 @@ public class Entrada extends Puerta {
     }
 
     void accion() {
-        System.out.println("Soy " + Thread.currentThread().getName());
         if (this.hayLugar()) {
 
             if (tipo) {
-                System.out.println("Estacionando moto por entrada: " + Thread.currentThread().getName());
-                this.estacionamineto.ingresaMoto();
+                synchronized (this) {
+                    System.out.println("Estacionando moto por: " + Thread.currentThread().getName());
+                    this.estacionamineto.ingresaMoto();
+                }
 
             } else {
-                System.out.println("Estacionando Auto por entrada: " + Thread.currentThread().getName());
-                this.estacionamineto.ingresaAuto();
+                synchronized (this) {
+                    System.out.println("Estacionando Auto por: " + Thread.currentThread().getName());
+                    this.estacionamineto.ingresaAuto();
+                }
+
             }
         } else {
             if (tipo) {
-                System.err.println("No hay lugar disponible para Motos ");
+                System.out.println("-------No hay lugar disponible para Motos ");
             } else {
-                System.err.println("No hay lugar disponible para Autos");
+                System.out.println("-------No hay lugar disponible para Autos");
             }
 
         }
