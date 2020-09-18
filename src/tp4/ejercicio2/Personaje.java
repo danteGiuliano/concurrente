@@ -15,23 +15,22 @@ public class Personaje implements Runnable {
         this.nombre = nombre;
         this.user = user;
     }
-    public Personaje(String nombre){
-        this.nombre=nombre;
-        this.vida=10;
+
+    public Personaje(String nombre) {
+        this.nombre = nombre;
+        this.vida = 10;
     }
 
     public void run() {
         try {
-            int num;
-            System.out.println(this.nombre+" Listo");
+            int num = 1;
+            System.out.println(this.nombre + " Listo");
             Thread.sleep(10);
 
-            while (user.estaVivo()) {
+            while (num < 5) {
                 this.accion();
                 Thread.sleep(1000);
-                if (!user.estaVivo()) {
-                    System.out.println("Batalla finalizada");
-                }
+                num++;
             }
 
         } catch (Exception e) {

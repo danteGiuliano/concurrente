@@ -10,10 +10,6 @@ public class Orco extends Personaje {
         super(unNombre, user);
     }
 
-    public void run() {
-        super.run();
-    }
-
     public synchronized void accion() {
         System.out.println(this.nombre + ": Pego un ataque de 3");
         this.user.dañar(3);
