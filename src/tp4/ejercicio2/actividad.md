@@ -1,8 +1,8 @@
 #Ejercicio obligatorio 18 / 09
 ## Modulo 2.
 ### Integrantes
-1- Dante R. Giuliano
-2- Erick L. Carus.
+- Dante R. Giuliano
+- Erick L. Carus.
 
 *Consignas *
 Realice un programa en donde se muestre el comportamiento de dos personajes que alteran nuestro puntos de VIDA (recurso compartido) que se inicializa con 10, de la siguiente manera:
