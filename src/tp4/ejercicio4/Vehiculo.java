@@ -44,17 +44,10 @@ public class Vehiculo implements Runnable {
         if (this.kmFaltantesParaService > 0) {
             this.kmFaltantesParaService = this.kmFaltantesParaService - 1;
         } else {
-            if (estacion.estaOcupado()) {
-                System.out.println(this.marca + ": Surtidor ocupado ");
-                Thread.sleep(1000);
-            } else {
-                estacion.ocuparSurtidor(true);
-                System.out.println(this.marca + ": Esta en el surtidor ");
-                this.kmFaltantesParaService = estacion.cargarCombustible(200);
-                System.out.println(this.marca + ": Tanque cargado.");
-                estacion.ocuparSurtidor(false);
-
-            }
+            System.out.println(this.marca + ": Esta en el surtidor ");
+            this.kmFaltantesParaService = estacion.cargarCombustible(200);
+            System.out.println(this.marca + ": Tanque cargado.");
+            Thread.sleep(1000);
         }
     }
 
