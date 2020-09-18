@@ -10,6 +10,6 @@ El Orco (hilo 1) nos golpea quitándonos (-) 3 de VIDA.
 El Curandero (hilo 2) nos cura dándonos (+) 3 de VIDA.
 Debe tener en cuenta que las operaciones son: obtener VIDA, operarlo y volverlo a guardar.
 
-a) Pruebe la ejecución varias veces e indique el valor resultante en cada una.
-b) ¿Qué puede concluir?
-c) Ahora modifique el programa utilizando alguna herramienta para sincronizar la ejecución.
+- a)Pruebe la ejecución varias veces e indique el valor resultante en cada una.
+- b)¿Qué puede concluir?
+- c)Ahora modifique el programa utilizando alguna herramienta para sincronizar la ejecución.
