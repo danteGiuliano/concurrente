@@ -32,34 +32,39 @@ public class Estacionamiento {
     public void saleAuto() {
         if (this.ocupacionMoto > 0) {
             if (this.semAutoNorte.tryAcquire() || this.semAutoSur.tryAcquire()) {
-                System.out.println("Sale Auto por: " + Thread.currentThread().getName());
                 this.ocupacionAuto = this.ocupacionAuto - 1;
+                System.out.println("Sale Auto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionAuto + "/10");
                 this.semAutoSur.release();
                 this.semAutoNorte.release();
-            }else{
+            } else {
                 System.out.println("Entrando autos por ambas entradas.");
             }
 
+        }else{
+            System.out.println("Estacionamiento de autos Vacio.");
         }
     }
 
     public void saleMoto() {
         if (this.ocupacionMoto > 0) {
             if (this.semMoto.tryAcquire()) {
-                System.out.println("Sale moto por: " + Thread.currentThread().getName());
                 this.ocupacionMoto = this.ocupacionMoto - 1;
+                System.out.println("Sale moto por: " + Thread.currentThread().getName() + "total: " + this.ocupacionMoto + "/10");
                 this.semMoto.release();
-            }else{
+            } else {
                 System.out.println("Esta entrando una moto, debe esperar.");
             }
+        }else{
+            System.out.println("Estacionamineto de motos Vacio.");
         }
     }
 
     public void entraMoto() {
         if (this.espacioAuto()) {
             if (this.semMoto.tryAcquire()) {
-                System.out.println("Entrando moto por: " + Thread.currentThread().getName());
                 this.estacionaMoto();
+                System.out.println("Entrando moto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionMoto + "/10");
+
                 this.semMoto.release();
             } else {
                 System.err.println("Hay motos en cola.");
@@ -73,8 +78,9 @@ public class Estacionamiento {
         if (this.espacioAuto()) {
             if (id.equals("Entrada Sur")) {
                 if (semAutoSur.tryAcquire()) {
-                    System.out.println("Estacionando auto por: " + Thread.currentThread().getName());
                     this.estacionaAuto();
+                    System.out.println("Estacionando auto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionAuto + "/10");
+
                     semAutoSur.release();
                 } else {
                     System.out.println("Entrada: " + Thread.currentThread().getName() + " Ocupada.");
@@ -82,8 +88,8 @@ public class Estacionamiento {
             }
             if (id.equals("Entrada Norte")) {
                 if (semAutoNorte.tryAcquire()) {
-                    System.out.println("Estacionando auto por: " + Thread.currentThread().getName());
                     this.estacionaAuto();
+                    System.out.println("Estacionando auto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionAuto + "/10");
                     semAutoNorte.release();
                 } else {
                     System.err.println("Entrada: " + Thread.currentThread().getName() + " Ocupada.");
@@ -92,6 +98,7 @@ public class Estacionamiento {
         } else {
             System.out.println("Estacionamiento lleno!");
         }
+
     }
 
     public boolean espacioAuto() {
