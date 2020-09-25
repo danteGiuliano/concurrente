@@ -30,7 +30,7 @@ public class Estacionamiento {
     }
 
     public void saleAuto() {
-        if (this.ocupacionMoto > 0) {
+        if (this.ocupacionAuto > 0) {
             if (this.semAutoNorte.tryAcquire() || this.semAutoSur.tryAcquire()) {
                 this.ocupacionAuto = this.ocupacionAuto - 1;
                 System.out.println("Sale Auto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionAuto + "/10");
