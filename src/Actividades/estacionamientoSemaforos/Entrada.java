@@ -17,16 +17,20 @@ public class Entrada extends Puerta {
 
     @Override
     void accion() {
-        if (tipo.esAuto()) {
-            if (parque.espacioAuto()) {
-                
-                parque.entraAuto();
+        try {
+            if (tipo.esAuto()) {
+                if (parque.espacioAuto()) {
+                    parque.entraAuto(this.nombre);
+                }
+            } else {
+                if (parque.espacioMoto()) {
+                    parque.entraMoto();
+                }
             }
-        } else {
-            if (parque.espacioMoto()) {
-                parque.entraMoto();
-            }
+        } catch (Exception e) {
+            System.out.println("Error en el estacionamiento.");
         }
+
     }
 
 }

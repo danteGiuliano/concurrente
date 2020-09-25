@@ -26,7 +26,7 @@ public class Vehiculo {
     }
 
     public boolean esAuto() {
-        return tipo;
+        return !tipo;
     }
 
     public boolean esMoto() {

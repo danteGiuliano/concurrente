@@ -16,10 +16,10 @@ public class Main {
 
         Thread hilos[] = new Thread[5];
 
-        Entrada eMoto = new Entrada("Estrada Motos ", new Vehiculo("moto"), parque);
+        Entrada eMoto = new Entrada("Entrada Motos ", new Vehiculo("moto"), parque);
         Salida salidaM = new Salida("Salida Motos", new Vehiculo("moto"), parque);
-        Entrada eSur = new Entrada("Estrada sur", new Vehiculo("auto"), parque);
-        Entrada eNorte = new Entrada("Estrada norte", new Vehiculo("auto"), parque);
+        Entrada eSur = new Entrada("Entrada Sur", new Vehiculo("auto"), parque);
+        Entrada eNorte = new Entrada("Entrada Norte", new Vehiculo("auto"), parque);
         Salida salidaA = new Salida("Salida Autos", new Vehiculo("auto"), parque);
 
         Puerta compuertas[] = {eMoto, eSur, eNorte, salidaM, salidaA};

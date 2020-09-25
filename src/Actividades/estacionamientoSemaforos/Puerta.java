@@ -5,7 +5,6 @@
  */
 package Actividades.estacionamientoSemaforos;
 
-
 /**
  *
  * @author Dan
@@ -26,7 +25,10 @@ abstract class Puerta implements Runnable {
         try {
             System.out.println(Thread.currentThread().getName() + " : Listo!");
             Thread.sleep(10);
-            this.accion();
+            for (int i = 0; i < 5; i++) {
+                this.accion();
+                Thread.sleep(100);
+            }
         } catch (Exception e) {
             System.err.println("Error al ejecutar: " + Thread.currentThread().getName());
         }
