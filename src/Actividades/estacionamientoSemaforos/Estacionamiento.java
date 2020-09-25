@@ -36,6 +36,8 @@ public class Estacionamiento {
                 this.ocupacionAuto = this.ocupacionAuto - 1;
                 this.semAutoSur.release();
                 this.semAutoNorte.release();
+            }else{
+                System.out.println("Entrando autos por ambas entradas.");
             }
 
         }
@@ -47,6 +49,8 @@ public class Estacionamiento {
                 System.out.println("Sale moto por: " + Thread.currentThread().getName());
                 this.ocupacionMoto = this.ocupacionMoto - 1;
                 this.semMoto.release();
+            }else{
+                System.out.println("Esta entrando una moto, debe esperar.");
             }
         }
     }
@@ -95,7 +99,7 @@ public class Estacionamiento {
     }
 
     public boolean espacioMoto() {
-        return this.ocupacionMoto <= this.MAX_AUTO;
+        return this.ocupacionMoto <= this.MAX_MOTO;
     }
 
     private void estacionaAuto() {
