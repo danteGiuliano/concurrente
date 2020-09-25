@@ -43,24 +43,25 @@ public class Estacionamiento {
 
     public void saleMoto() {
         if (this.ocupacionMoto > 0) {
-            try {
-                this.semMoto.acquire();
-                System.out.println("Sale moto");
+            if (this.semMoto.tryAcquire()) {
+                System.out.println("Sale moto por: " + Thread.currentThread().getName());
                 this.ocupacionMoto = this.ocupacionMoto - 1;
                 this.semMoto.release();
-            } catch (Exception e) {
-                System.out.println("Error en la entrada de motos.");
             }
         }
-
     }
 
-    public void entraMoto() throws Exception {
+    public void entraMoto() {
         if (this.espacioAuto()) {
-            this.semMoto.acquire();
-            System.out.println("Entrando moto por: " + Thread.currentThread().getName());
-            this.ocupacionMoto = this.ocupacionMoto + 1;
-            this.semMoto.release();
+            if (this.semMoto.tryAcquire()) {
+                System.out.println("Entrando moto por: " + Thread.currentThread().getName());
+                this.estacionaMoto();
+                this.semMoto.release();
+            } else {
+                System.err.println("Hay motos en cola.");
+            }
+        } else {
+            System.out.println("No hay espacio para motos");
         }
     }
 
@@ -81,11 +82,11 @@ public class Estacionamiento {
                     this.estacionaAuto();
                     semAutoNorte.release();
                 } else {
-                    System.out.println("Entrada: " + Thread.currentThread().getName() + " Ocupada.");
+                    System.err.println("Entrada: " + Thread.currentThread().getName() + " Ocupada.");
                 }
-
             }
-
+        } else {
+            System.out.println("Estacionamiento lleno!");
         }
     }
 
@@ -99,5 +100,9 @@ public class Estacionamiento {
 
     private void estacionaAuto() {
         this.ocupacionAuto = this.ocupacionAuto + 1;
+    }
+
+    private void estacionaMoto() {
+        this.ocupacionMoto = this.ocupacionMoto + 1;
     }
 }
