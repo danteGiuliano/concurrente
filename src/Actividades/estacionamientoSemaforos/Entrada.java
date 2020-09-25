@@ -17,7 +17,6 @@ public class Entrada extends Puerta {
 
     @Override
     void accion() {
-        try {
             if (tipo.esAuto()) {
                 if (parque.espacioAuto()) {
                     parque.entraAuto(this.nombre);
@@ -27,10 +26,6 @@ public class Entrada extends Puerta {
                     parque.entraMoto();
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error en el estacionamiento.");
-        }
-
     }
 
 }

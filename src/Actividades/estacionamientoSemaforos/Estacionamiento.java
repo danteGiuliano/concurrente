@@ -60,7 +60,7 @@ public class Estacionamiento {
     }
 
     public void entraMoto() {
-        if (this.espacioAuto()) {
+        if (this.espacioMoto()) {
             if (this.semMoto.tryAcquire()) {
                 this.estacionaMoto();
                 System.out.println("Entrando moto por: " + Thread.currentThread().getName() + " total: " + this.ocupacionMoto + "/10");
@@ -74,7 +74,7 @@ public class Estacionamiento {
         }
     }
 
-    public void entraAuto(String id) throws Exception {
+    public void entraAuto(String id) {
         if (this.espacioAuto()) {
             if (id.equals("Entrada Sur")) {
                 if (semAutoSur.tryAcquire()) {
