@@ -6,3 +6,4 @@
 4. tp2: tp de excepciones.
 5. tp3: tp de Thread.
 6. tp4: tp de synchronized
+7. tp5: tp semaphore
