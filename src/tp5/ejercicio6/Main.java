@@ -12,16 +12,17 @@ package tp5.ejercicio6;
 public class Main {
 
     public static void main(String[] args) {
-        Cadena palabra = new Cadena("ABBCCC", 2);
+        Cadena palabra = new Cadena("ABBECCC", 2);
         Letra a = new Letra('A', palabra);
         Letra b = new Letra('B', palabra);
         Letra c = new Letra('C', palabra);
+        Letra e= new Letra('E',palabra);
 
-        Letra alfabeto[] = {a, b, c};
+        Letra alfabeto[] = {a, b, c,e};
 
-        Thread misHilos[] = new Thread[3];
+        Thread misHilos[] = new Thread[4];
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < misHilos.length; i++) {
             misHilos[i] = new Thread(alfabeto[i]);
         }
         try {
@@ -32,7 +33,7 @@ public class Main {
                 hilo.join();
             }
             System.out.println("La palabra es: " + palabra.getCadena());
-        } catch (Exception e) {
+        } catch (Exception exception) {
             System.out.println("Error en el hilo: " + Thread.currentThread().getName());
         }
 

@@ -14,20 +14,22 @@ import java.util.ArrayList;
  */
 public class Cadena {
 
-    private String cadena;
+    private String cadena; //Cadena que imprime.
     private Semaphore semCadena;
-    private String expresion;
+    private String expresion; //Expresion pasada por parametro
+    //Variables de control de turno.
     private int turno;
     private int turnoMax;
-    private int timeOut;
+    //Cantidad de veces que repite la expresion
+    private int repeticion;
 
-    public Cadena(String expresion, int timeOut) {
+    public Cadena(String expresion, int repeticion) {
         this.expresion = expresion;
         this.cadena = " ";
         this.semCadena = new Semaphore(1);
         this.turno = 0;
         this.turnoMax = expresion.length() - 1;
-        this.timeOut = timeOut;
+        this.repeticion = repeticion;
 
     }
 
@@ -54,7 +56,7 @@ public class Cadena {
     }
 
     public int rutina() {
-        return this.timeOut;
+        return this.repeticion;
     }
 
     public String getCadena() {
