@@ -61,6 +61,7 @@ public class Colores {
     }
 
     public String pintar(String aCadena) {
-        return this.unColor + aCadena + RESET;
+        String aux = this.unColor;
+        return aux + aCadena + RESET;
     }
 }
