@@ -6,7 +6,6 @@
 package tp5.ejercicio14;
 
 import java.util.Random;
-import tp5.ejercicio13.*;
 
 /**
  *
@@ -29,27 +28,19 @@ public class Empleado extends Trabajador {
             System.out.println(this.getClass().getSimpleName() + " " + this.nombre + " Se acerca al local");
             Random rd = new Random();
             if (rd.nextBoolean()) {
-                if (this.unaConfiteria.hayLugarParaBeber()) {
-                    System.out.println(this.nombre + ": Esperare a que el mozo tome mi orden");
-                    System.out.println(this.nombre + ": Voy a pedir una bebida.");
-                    this.unaConfiteria.clienteParaMozo(nombre);
-                } else {
-                    System.out.println(this.nombre + ": No hay lugar volvere en 15 min ");
-                    Thread.sleep(10000);
-                    this.accion();
-                }
+                this.unaConfiteria.hayLugarParaBeber();
+                System.out.println(this.nombre + ": voy a ocupar un lugar (:");
+                System.out.println(this.nombre + ": Voy a pedir una bebida.");
+                Thread.sleep(1000);
             }
             if (rd.nextBoolean()) {
-                if (this.unaConfiteria.hayLugarParaComer()) {
-                    System.out.println(this.nombre + ": Esperare a que el cocinero tome mi orden");
-                    System.out.println(this.nombre + ": Voy a pedir algo para comer.");
-                    this.unaConfiteria.clienteParaCocinero(nombre);
-                } else {
-                    System.out.println(this.nombre + ": No hay lugar volvere en 15 min ");
-                    Thread.sleep(10000);
-                    this.accion();
-                }
+                this.unaConfiteria.hayLugarParaComer();
+                System.out.println(this.nombre + ": voy a ocupar un lugar (:");
+                System.out.println(this.nombre + ": Voy a pedir algo para comer.");
+                Thread.sleep(1000);
             }
+            Thread.sleep(100);
+            this.accion();
         } catch (Exception e) {
             System.out.println("Error en el Thread. " + Thread.currentThread().getName());
             System.out.println(e);

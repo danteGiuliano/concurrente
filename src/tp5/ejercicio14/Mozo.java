@@ -5,8 +5,6 @@
  */
 package tp5.ejercicio14;
 
-import tp5.ejercicio13.*;
-
 /**
  *
  * @author Dan
@@ -20,12 +18,10 @@ public class Mozo extends Trabajador {
     @Override
     void accion() {
         try {
-            if (this.unaConfiteria.pedidoBebida()) {
-                System.out.println("Mozo :" + this.nombre + " Buenos dias");
-                this.unaConfiteria.mozoAtiendeCliente();
-            } else {
-                System.out.println("Mozo :"+this.nombre+" No hay clientes seguire haciendo mis hobbies.");
-            }
+            System.out.println("Mozo :" + this.nombre + " No hay clientes seguire haciendo mis hobbies.");
+            this.unaConfiteria.pedidoBebida();
+            System.out.println("Mozo :" + this.nombre + " Buenos dias");
+            this.unaConfiteria.mozoAtiendeCliente();
             Thread.sleep(5000);
             this.accion();
         } catch (Exception e) {

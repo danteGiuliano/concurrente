@@ -30,7 +30,7 @@ public class Main {
 //Inicializacion mozo y cocinero
         Mozo unMozo = new Mozo(c1.pintar("Amador"));
         unMozo.setConfiteria(unaConfiteria);
-        Cocinero unCocinero = new Cocinero(c1.pintar("Tutuk"));
+        Cocinero unCocinero = new Cocinero(c1.pintar("Smither"));
         unCocinero.setConfiteria(unaConfiteria);
 //Hilos
         Thread misHilos[] = new Thread[empleados.length];
@@ -51,4 +51,5 @@ public class Main {
             hilo.start();
         }
     }
+
 }

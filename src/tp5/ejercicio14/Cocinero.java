@@ -18,12 +18,10 @@ public class Cocinero extends Trabajador {
     @Override
     void accion() {
         try {
-            if (this.unaConfiteria.pedidoComida()) {
-                System.out.println("Cocinero :" + this.nombre + " Buenos dias");
-                this.unaConfiteria.cocineroAtiendeCliente();
-            } else {
-                System.out.println("Mozo :" + this.nombre + " No hay clientes seguire haciendo mis hobbies.");
-            }
+            System.out.println("Mozo :" + this.nombre + " No hay clientes seguire haciendo mis hobbies.");
+            this.unaConfiteria.pedidoComida();
+            System.out.println("Cocinero :" + this.nombre + " Buenos dias");
+            this.unaConfiteria.cocineroAtiendeCliente();
             Thread.sleep(5000);
             this.accion();
         } catch (Exception e) {
