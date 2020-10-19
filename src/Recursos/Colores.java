@@ -62,6 +62,10 @@ public class Colores {
 
     public String pintar(String aCadena) {
         String aux = this.unColor;
-        return aux + aCadena + RESET;
+        return aux + aCadena+RESET;
+    }
+    public static String colorAleatorio(String texto){
+        Colores q = new Colores("aleatorio");
+        return q.pintar(texto);
     }
 }
