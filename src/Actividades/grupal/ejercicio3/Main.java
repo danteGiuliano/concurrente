@@ -17,17 +17,16 @@ public class Main {
 
         String nombreCliente[] = {"Jeremias", "Andres", "Erick", "Marianno", "Julian", "Silvia",
             "Agustin", "Valeria", "Juan", "Dante", "Rodrigo", "Dana", "Denisse", "Dennise",
-             "Pepe", "Etc sech"};
+            "Pepe", "Etc sech","Valon","unNombre"};
 
-        String nombreBarbero[] = {"Manolo", "Pepo", "Adriano", "Kaka"};
-        System.out.println(nombreBarbero[1]);
+        String nombreBarbero[] = {"Manolo", "Pepo", "Adriano", "Kaka","Erick"};
         int sillas = 3;
         Barberia unaBarberia = new Barberia(sillas);
 
         Cliente clientes[];
         clientes = new Cliente[nombreCliente.length];
         Barbero barberos[] = new Barbero[nombreBarbero.length];
-        Thread misHilos[] = new Thread[clientes.length + barberos.length];
+        Thread misHilos[] = new Thread[(clientes.length + barberos.length)];
 
         for (int i = 0; i < nombreCliente.length; i++) {
             clientes[i] = new Cliente((Colores.colorAleatorio(nombreCliente[i])), unaBarberia);
@@ -40,10 +39,12 @@ public class Main {
             misHilos[i] = new Thread(barberos[i]);
             i++;
         }
-        j =barberos.length+clientes.length-5;
+        j = barberos.length + clientes.length;
+        int aux = 0;
         while (i < j) {
-            misHilos[i] = new Thread(clientes[i]);
+            misHilos[i] = new Thread(clientes[aux]);
             i++;
+            aux++;
         }
         for (Thread hilo : misHilos) {
             hilo.start();
