@@ -22,7 +22,7 @@ public class Consumidor extends Thread {
         while (true) {
             try {
                 this.unBuffer.consume();
-                Thread.sleep(100);
+               // Thread.sleep(100);
             } catch (Exception e) {
                 System.out.println("ERROR " + e + Thread.currentThread().getName());
             }

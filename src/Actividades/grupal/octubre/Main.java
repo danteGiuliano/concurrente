@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static void consumidor(Buffer unBuffer) {
-        Consumidor misConsumidores[] = new Consumidor[20];
+        Consumidor misConsumidores[] = new Consumidor[2];
         
         for (int i = 0; i < misConsumidores.length; i++) {
             misConsumidores[i] = new Consumidor(unBuffer);
@@ -30,7 +30,7 @@ public class Main {
     }
 
     public static void productor(Buffer unBuffer) {
-        Productor misProductores[] = new Productor[20];
+        Productor misProductores[] = new Productor[2];
 
         for (int i = 0; i < misProductores.length; i++) {
             misProductores[i] = new Productor(unBuffer);
