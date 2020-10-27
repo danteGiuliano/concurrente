@@ -22,21 +22,20 @@ public class Buffer {
      * deberia saber cuanto debe producir
      *
      */
-    private int array[];
-    private int index;
+    private int tamaño;
+    private int indice;
 
-    public Buffer(int size) {
-        this.array = new int[size];
-        this.index = 0;
+    public Buffer(int tamaño) {
+        this.tamaño = tamaño;
+        this.indice = 0;
 
     }
 
     public synchronized void genera() throws Exception {
         //Estoy lleno?
-        if (index + 1 < this.array.length) {
+        if (indice + 1 < this.tamaño) {
             //Que bien tengo espacio creare un numero y lo guardare!
-            this.index = this.index + 1;
-            this.array[index] = Math.round(10);
+            this.indice++;
             System.out.println("Productor: +1 " + this.ocupacion());
             //Si alguien quiere un numero puedo avisarle que ya tengo uno!
             this.notify();
@@ -50,9 +49,9 @@ public class Buffer {
 
     public synchronized void consume() throws Exception {
         //Tengo algo para dar?
-        if (index > 0) {
+        if (this.indice > 0 ) {
             //Que bien tengo un numero para poder entregar
-            this.index = this.index - 1;
+            this.indice--;
             System.out.println("Consumidor: -1 " + this.ocupacion());
             //Si tal vez alguien quiere agregar un numero le avisare!
             this.notify();
@@ -65,6 +64,6 @@ public class Buffer {
     }
 
     public synchronized int ocupacion() {
-        return this.index;
+        return this.indice;
     }
 }
