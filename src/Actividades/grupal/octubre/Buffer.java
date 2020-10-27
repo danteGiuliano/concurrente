@@ -27,7 +27,7 @@ public class Buffer {
 
     public Buffer(int size) {
         this.array = new int[size];
-        this.index = 1;
+        this.index = 0;
 
     }
 
@@ -35,33 +35,33 @@ public class Buffer {
         //Estoy lleno?
         if (index + 1 < this.array.length) {
             //Que bien tengo espacio creare un numero y lo guardare!
-            this.index++;
+            this.index = this.index + 1;
             this.array[index] = Math.round(10);
+            System.out.println("Productor: +1 " + this.ocupacion());
             //Si alguien quiere un numero puedo avisarle que ya tengo uno!
             this.notify();
         } else {
             //No tengo suficiente espacio esperare a que alguien se lo lleve.
             this.wait();
             //Bueno se que hay un espacio para mi. peleare por mi espacio!
-            this.genera();
         }
-        System.out.println("Productor: +1 " + this.ocupacion());
+
     }
 
     public synchronized void consume() throws Exception {
         //Tengo algo para dar?
         if (index > 0) {
             //Que bien tengo un numero para poder entregar
-            this.index--;
+            this.index = this.index - 1;
+            System.out.println("Consumidor: -1 " + this.ocupacion());
             //Si tal vez alguien quiere agregar un numero le avisare!
             this.notify();
         } else {
             //No tengo numeros disponibles esperare a que tenga uno
             this.wait();
             //Bueno se que algo para consumir! peleare por mi producto
-            this.consume();
         }
-        System.out.println("Consumidor: -1 " + this.ocupacion());
+
     }
 
     public synchronized int ocupacion() {

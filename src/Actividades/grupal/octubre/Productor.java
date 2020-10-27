@@ -22,6 +22,7 @@ public class Productor extends Thread {
         while (true) {
             try {
                 this.unBuffer.genera();
+                Thread.sleep(100);
             } catch (Exception e) {
                 System.out.println("ERROR " + e + Thread.currentThread().getName());
             }
