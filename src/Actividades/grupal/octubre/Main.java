@@ -23,10 +23,10 @@ public class Main {
         for (int i = 0; i < misProductores.length; i++) {
             misProductores[i] = new Productor(unBuffer);
         }
-        for (Consumidor unConsumidor: misConsumidores) {
+        for (Consumidor unConsumidor : misConsumidores) {
             unConsumidor.start();
         }
-        for(Productor unProductor: misProductores){
+        for (Productor unProductor : misProductores) {
             unProductor.start();
         }
     }

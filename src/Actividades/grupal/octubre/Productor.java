@@ -22,7 +22,6 @@ public class Productor extends Thread {
         while (true) {
             try {
                 this.unBuffer.genera();
-                 System.out.println("Productor: +1 "+this.unBuffer.ocupacion());
             } catch (Exception e) {
                 System.out.println("ERROR " + e + Thread.currentThread().getName());
             }
