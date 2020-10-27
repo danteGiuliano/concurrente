@@ -13,12 +13,12 @@ public class Main {
 
     public static void main(String[] args) {
         Buffer unBuffer = new Buffer(100);
-        consumidor(unBuffer);
-        productor(unBuffer);
+        consumidor(unBuffer,2);
+        productor(unBuffer,2);
     }
 
-    public static void consumidor(Buffer unBuffer) {
-        Consumidor misConsumidores[] = new Consumidor[2];
+    public static void consumidor(Buffer unBuffer,int num) {
+        Consumidor misConsumidores[] = new Consumidor[num];
         
         for (int i = 0; i < misConsumidores.length; i++) {
             misConsumidores[i] = new Consumidor(unBuffer);
@@ -29,8 +29,8 @@ public class Main {
         }
     }
 
-    public static void productor(Buffer unBuffer) {
-        Productor misProductores[] = new Productor[2];
+    public static void productor(Buffer unBuffer,int num) {
+        Productor misProductores[] = new Productor[num];
 
         for (int i = 0; i < misProductores.length; i++) {
             misProductores[i] = new Productor(unBuffer);
