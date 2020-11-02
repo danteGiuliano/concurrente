@@ -37,5 +37,8 @@ public class Mascota extends Thread {
             System.out.println("ERROR :" + e + " :" + Thread.currentThread().getName());
         }
     }
+    public void setComedor(Comedor unComedor){
+        unComedero=unComedor;
+    }
 
 }

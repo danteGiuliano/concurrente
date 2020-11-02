@@ -21,7 +21,8 @@ public class Main {
 
     public static void inicializarMascota(Mascota array[], String tipo) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = new Mascota(tipo, unComedor);
+            array[i] = new Mascota(tipo, null);
+            array[i].setComedor(unComedor);
             array[i].start();
         }
     }
