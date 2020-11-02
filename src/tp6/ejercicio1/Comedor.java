@@ -25,11 +25,14 @@ public class Comedor {
         this.espera = new Semaphore(0);
     }
 
-    public void entrada(String tipo) throws Exception {
+    public boolean entrada(String tipo) throws Exception {
+        boolean flag = true;
         this.puedePasar(tipo);
         if (!platos.tryAcquire()) {
             espera.acquire();
+            flag = false;
         }
+        return flag;
     }
 
     private void puedePasar(String tipo) throws Exception {

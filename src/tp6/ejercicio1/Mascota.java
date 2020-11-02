@@ -24,15 +24,17 @@ public class Mascota extends Thread {
         try {
             Thread.sleep(100);
             while (true) {
-                unComedero.entrada(this.tipo);
-                System.out.println("Aninmal Comiendo.");
-                System.out.println(tipo + " :" + Thread.currentThread().getName());
-                unComedero.seVa();
-                System.out.println("Animal llendose.");
-                System.out.println(tipo + " :" + Thread.currentThread().getName());
+                if (unComedero.entrada(this.tipo)) {
+                    System.out.println("Aninmal Comiendo.");
+                    System.out.println(tipo + " :" + Thread.currentThread().getName());
+                    unComedero.seVa();
+                    System.out.println("Animal llendose.");
+                    System.out.println(tipo + " :" + Thread.currentThread().getName());
+                }
+
             }
         } catch (Exception e) {
-            System.out.println("ERROR :" + e+" :"+Thread.currentThread().getName());
+            System.out.println("ERROR :" + e + " :" + Thread.currentThread().getName());
         }
     }
 
